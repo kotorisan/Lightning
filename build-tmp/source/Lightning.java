@@ -18,12 +18,13 @@ int endX = 0;
 int endY = 150;
 int startX = 0;
 int startY = 150;
+int numMousePressed = 0;
 
 public void setup()
 {
   size(300,300);
   strokeWeight(1);
-  background(225);
+  background(0);
   noLoop();
 }
 
@@ -41,11 +42,20 @@ public void draw()
 
 public void mousePressed()
 {
-	startX=0;
-	startY=150;
-	endX=0;
-	endY=150;
-	redraw();
+	numMousePressed++;
+
+	if (numMousePressed == 7) {
+		setup();
+		numMousePressed = 0;
+	}
+
+	else {
+			startX=0;
+			startY=150;
+			endX=0;
+			endY=150;
+			redraw();
+}
 }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "Lightning" };

@@ -2,12 +2,14 @@ int endX = 0;
 int endY = 150;
 int startX = 0;
 int startY = 150;
+//mouse clicking counter
+int numMousePressed = 0;
 
 void setup()
 {
   size(300,300);
   strokeWeight(1);
-  background(225);
+  background(0);
   noLoop();
 }
 
@@ -25,9 +27,18 @@ void draw()
 
 void mousePressed()
 {
-	startX=0;
-	startY=150;
-	endX=0;
-	endY=150;
-	redraw();
+	numMousePressed++;
+// where the counter continues
+	if (numMousePressed == 6) {
+		setup();
+		numMousePressed = 0;
+	}
+
+	else {
+			startX=0;
+			startY=150;
+			endX=0;
+			endY=150;
+			redraw();
+}
 }
